@@ -1,32 +1,37 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div id="app" class="clearfix">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    </div> -->
+    <router-view class="routerView"/>
+
+    <Tabbar v-if="$route.path != '/logout'"/>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import Tabbar from "@/components/Tabbar.vue";
+
+export default {
+  name: "app",
+  components: {
+    Tabbar
+  },
+  mounted() {
+
+  }
+}
+</script>
+
+<style lang="scss" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  // margin-top: 0px;
+  background-color: $background-gray;
+  min-height: calc(100vh - 50px);
+  margin-bottom: 50px;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.routerView {
 }
 </style>
